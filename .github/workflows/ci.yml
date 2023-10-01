@@ -55,7 +55,7 @@ jobs:
         check-latest: true
 
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     # These tools would be useful if we later decide to reinvestigate
     # publishing test/coverage reports to some tool for easier consumption
@@ -147,7 +147,7 @@ jobs:
     continue-on-error: true  # August 2020: s390x VM is down due to weather and power issues
     steps:
       - name: Checkout code into the Go module directory
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Run Tests
         run: |
           mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_ecdsa && chmod og-rwx ~/.ssh/id_ecdsa
@@ -173,7 +173,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - uses: goreleaser/goreleaser-action@v4
         with:
